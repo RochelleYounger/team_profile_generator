@@ -9,24 +9,6 @@ test("creates an engineer object", () => {
     expect(engineer.github).toBe("johnnyjohn");
 });
 
-test("gets engineer name", () => {
-    const engineer = new Engineer("john", "78515", "john@gmail.com", "johnnyjohn");
-
-    expect(engineer.getName()).toBe("john");
-});
-
-test("gets engineer id", () => {
-    const engineer = new Engineer("john", "78515", "john@gmail.com", "johnnyjohn");
-
-    expect(engineer.getId()).toBe("78515");
-});
-
-test("gets engineer email", () => {
-    const engineer = new Engineer("john", "78515", "john@gmail.com", "johnnyjohn");
-
-    expect(engineer.getEmail()).toBe("john@gmail.com");
-});
-
 test("gets engineer role", () => {
     const engineer = new Engineer("john", "78515", "john@gmail.com", "johnnyjohn");
 

@@ -9,24 +9,6 @@ test("creates an intern object", () => {
     expect(intern.school).toBe("Institute of Interning");
 });
 
-test("gets intern name", () => {
-    const intern = new Intern("john", "78515", "john@gmail.com", "Institute of Interning");
-
-    expect(intern.getName()).toBe("john");
-});
-
-test("gets intern id", () => {
-    const intern = new Intern("john", "78515", "john@gmail.com", "Institute of Interning");
-
-    expect(intern.getId()).toBe("78515");
-});
-
-test("gets intern email", () => {
-    const intern = new Intern("john", "78515", "john@gmail.com", "Institute of Interning");
-
-    expect(intern.getEmail()).toBe("john@gmail.com");
-});
-
 test("gets intern role", () => {
     const intern = new Intern("john", "78515", "john@gmail.com", "Institute of Interning");
 

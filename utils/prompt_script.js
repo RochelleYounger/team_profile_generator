@@ -1,11 +1,10 @@
 const inquirer = require("inquirer");
+const Engineer = require("../lib/Engineer");
+const Manager = require("../lib/Manager");
+const Intern = require("../lib/Intern");
 
-// object where all member data is stored
-let members = {
-    manager: [],
-    engineers: [],
-    interns: [],
-};
+    // array where member data is stored
+    let members = [];
 
 // prompt question arrays
 const questions1 = [
@@ -160,14 +159,14 @@ const questions2 = [
 const initialPrompt = () => {
     return inquirer.prompt(questions1)
         .then(data => {
-        data.role = "manager";
-        members.manager.push(data);
+            let { name, id, email, officeNumber } = data;
+            members.push(new Manager(name, id, email, officeNumber));
         })
     ;
 };
 
 // prompt for additional members
-const secondaryPrompt = () => {
+const secondPrompt = () => {
     console.log(`
     =================
     Add New Member
@@ -176,23 +175,19 @@ const secondaryPrompt = () => {
     return inquirer.prompt(questions2)
         .then(memberData => {
             if (memberData.role === "engineer") {
-                members.engineers.push(memberData);
+                let { name, id, email, github } = memberData;
+                members.push(new Engineer(name, id, email, github));
             } else if (memberData.role === "intern") {
-                members.interns.push(memberData);
+                let { name, id, email, school } = memberData;
+                members.push(new Intern(name, id, email, school));
             }
             if (memberData.confirmAddMember) {
-                return secondaryPrompt();
+                return secondPrompt();
             } else {
-                console.log(members);
-                return;
+                return members;
             }
         })
     ;
 };
 
-initialPrompt()
-    .then(secondaryPrompt)
-    .catch(err => {
-        console.log(err);
-    })
-;
+module.exports = { initialPrompt, secondPrompt }

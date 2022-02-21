@@ -54,7 +54,7 @@ const generateTemplate = memberData => {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Team Profile Generator</title>
         <script src="https://kit.fontawesome.com/e458d72f28.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./style.css">
     </head>
 
     <body>

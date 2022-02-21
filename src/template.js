@@ -24,20 +24,17 @@ const generateCards = (members) => {
 
     function myFunction(member) {
         cardHTML += `
-        
-            <div>
-                <header>
+            <article class="card">
+                <div  class="card-title">
                     <h2>${member.getName()}</h2>
-                    <h3><span>${displayIcon(member.getRole())}</span>${member.getRole()}</h3>
-                </header>
-                <article>
-                    <div>
-                        <p>ID: ${member.getId()}</p>
-                        <p>Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></p>
-                        <p>${displayInfo(member.getRole(), member)}</p>
-                    </div>
-                </article>
-            </div>
+                    <h3><span>${displayIcon(member.getRole())}</span> ${member.getRole()}</h3>
+                </div>
+                <div class="card-info">
+                    <p>ID: ${member.getId()}</p>
+                    <p>Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></p>
+                    <p>${displayInfo(member.getRole(), member)}</p>
+                </div>
+            </article>
         `;
     }
 
@@ -61,10 +58,10 @@ const generateTemplate = memberData => {
     </head>
 
     <body>
-        <header>
-            <h1>My Team</h1>
+        <header class="title">
+            <h1 class="title-text">My Team</h1>
         </header>
-        <main>
+        <main class="container">
             ${generateCards(memberData)}
         </main>
     </body>

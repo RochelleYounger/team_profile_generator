@@ -4,10 +4,6 @@ const { generateTemplate } = require("./src/template");
 
 initialPrompt()
     .then(secondPrompt)
-    .then(data => {
-        console.log(data);
-        return data;
-    })
     .then(data => generateTemplate(data))
     .then(template => writeFile(template))
     .then(response => {
